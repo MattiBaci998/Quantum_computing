@@ -19,7 +19,7 @@ if __name__ == "__main__":
         random_sample = qrng(qsim)
         print(f"Our quantum random number generator returned:\n{random_sample}")
 
-        
+
 
 
 

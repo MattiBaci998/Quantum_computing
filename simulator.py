@@ -1,6 +1,6 @@
 # Libraries needed
 import numpy as np 
-import interface as irf 
+from interface import QuantumDevice, Qubit
 
 # Setting of the main vectors
 KET_0 = np.array([
@@ -14,7 +14,7 @@ H = np.array([
     ], dtype = complex)/np.sqrt(2) 
 
 # Building the classes
-class SimulatedQubit(irf.Qubit):
+class SimulatedQubit(Qubit):
     def __init__(self):
         self.reset()
 
@@ -29,7 +29,7 @@ class SimulatedQubit(irf.Qubit):
     def reset(self):
         self.state = KET_0.copy() 
 
-class SingleQubitSimulator(irf.QuantumDevice):
+class SingleQubitSimulator(QuantumDevice):
     available_qubits = [SimulatedQubit()]
 
     def allocate_qubit(self) -> SimulatedQubit:
@@ -39,4 +39,4 @@ class SingleQubitSimulator(irf.QuantumDevice):
     def deallocate_qubit(self, qubit:SimulatedQubit):
         self.available_qubits.append(qubit)
 
-        
+

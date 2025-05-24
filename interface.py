@@ -35,4 +35,4 @@ class QuantumDevice(metaclass=ABCMeta):
       yield qubit 
     finally:
       qubit.reset()
-      self.deallocate_qubit() 
+      self.deallocate_qubit(qubit) 
